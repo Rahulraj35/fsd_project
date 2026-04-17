@@ -1,68 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cynthia Ugwu | Product Designer</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" href="loco.css">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./fsd_project/styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <div id="main" data-scroll-container>
+    <div id="minicircle"></div>
+    <div id="main">
         <div id="hero">
             <div id="nav">
                 <a href="#">Cynthia Ugwu</a>
                 <h4>MENU+</h4>
             </div>
             <div id="heading">
-                <h1>Product</h1>
+                <div class="bounding">
+                    <h1 class="boundinglem">Product</h1>
+                </div>
+
                 <div class="blocktext">
-                    <h1 id="secondh1">Designer</h1>
-                    <h5>Based in Toronto</h5>
-                </div>
-                <div id="chotiheadings">
-                    <h5>available for freelance</h5>
-                    <h5>work from april 2026</h5>
-                </div>
-                <div id="herofooter">
-                    <a href="#">PREVIOUSLY WORKED AT YML <i class="ri-arrow-right-up-line"></i></a>
-                    <a href="#">PROTOPIE AMBASSADOR <i class="ri-arrow-right-up-line"></i></a>
-                    <div id="ICONSET">
-                        <div class="circle"><i class="ri-arrow-down-circle-line"></i></div>
-                        <div class="circle"><i class="ri-arrow-down-circle-line"></i></div>
+                    <div class="bounding">
+                        <h1 class="boundinglem" id="secondh1">Designer</h1>
                     </div>
+                    <div class="bounding">
+                        <h5 class="boundinglem">Based in Toronto</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div id="chotiheadings">
+                <div class="bounding">
+                    <h5 class="boundinglem">available for freelance</h5>
+                </div>
+                <div class="bounding">
+                    <h5 class="boundinglem">work from april 20</h5>
+                </div>
+            </div>
+            <div id="herofooter">
+                <a href="#">PREVIOUSLY WORKED AT YML <i class="ri-arrow-right-up-line"></i></a>
+                <a href="#">PROTOPIE AMBASSADOR <i class="ri-arrow-right-up-line"></i></a>
+                <div id="ICONSET">
+                    <div class="circle"><i class="ri-arrow-down-circle-line"></i></div>
+                    <div class="circle"><i class="ri-arrow-down-circle-line"></i></div>
                 </div>
             </div>
         </div>
 
         <div id="second">
             <div class="elem">
-                <img src="img1.png" alt="The Plug">
+                <img src="./plug.png" alt="">
                 <h1>The Plug</h1>
                 <h5>2026</h5>
             </div>
             <div class="elem">
-                <img src="img2.png" alt="Experience">
+                <img src="./ixperience.png" alt="">
                 <h1>EXPERIENCE</h1>
                 <h5>2026</h5>
             </div>
-            <div class="elem elemlast">
-                <img src="img3.png" alt="Hudu">
+            <div class="elem elemlast ">
+                <img src="./hudu.png" alt="">
                 <h1>HUDU</h1>
                 <h5>2026</h5>
             </div>
         </div>
 
         <div id="about">
-            <img src="img4.png" alt="Profile Picture">
-            <div id="textabout">
-                <h5>(About me)</h5>
-                <p>I'm a product designer based in Toronto, Canada. I have a passion for creating intuitive and user-friendly digital products that solve real-world problems. With over 5 years of experience, I bring innovative ideas to life through collaboration and insight-driven design.</p>
-                <a href="#">Let's talk</a>
+            <div id="about-content">
+                <img src="./img1.png" alt="">
+
+                <div id="textabout">
+                    <h5>(About me)</h5>
+                    <p>I'm a product designer with a passion for creating products that not only look good but also
+                        solve
+                        real problems. When I'm not sketching ideas on paper, you can find me binge-watching a Netflix
+                        series or playing video games. My design philosophy is simple: make it visually appealing,
+                        functional, and bring a smile to people's faces. I'm the designer you want on your team if you
+                        want
+                        to make people say 'I need that in my life!'</p>
+
+                    <a href="#">Let's talk</a>
+                </div>
             </div>
         </div>
 
@@ -72,21 +101,19 @@
 
         <div id="footer">
             <div id="footerright">
-                <a href="#">dribbble</a>
-                <a href="#">instagram</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Twitter</a>
-            </div>
-            <div id="footerleft">
                 <h5>2026 &copy;</h5>
                 <h5>0:05 AM EST</h5>
             </div>
+            <div id="footerleft">
+                <a href="#">dribble</a><a href="#">instagram</a><a href="#">LinkedIn</a><a href="#">Twitter</a>
+            </div>
         </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-    <script src="./fsd_project/script.js"></script>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
