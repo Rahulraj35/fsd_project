@@ -1,110 +1,98 @@
-// 1. INITIALIZE LOCOMOTIVE & GSAP PROXY
-gsap.registerPlugin(ScrollTrigger);
-
 const scroll = new LocomotiveScroll({
     el: document.querySelector("#main"),
-    smooth: true
+    smooth: true,
 });
 
-// Each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync)
-scroll.on("scroll", ScrollTrigger.update);
+function firstPageAnim() {
+    var t1 = gsap.timeline();
 
-// Tell ScrollTrigger to use these proxy methods for the "#main" element
-ScrollTrigger.scrollerProxy("#main", {
-    scrollTop(value) {
-        return arguments.length ? scroll.scrollTo(value, 0, 0) : scroll.scroll.instance.scroll.y;
-    },
-    getBoundingClientRect() {
-        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-    },
-    // LocomotiveScroll handles things through transforms, so we don't need to pin
-    pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
-});
+    t1.from("#nav", {
+        y: '-10',
+        opacity: 0,
+        duration: 1.5,
+        ease: Expo.easeInOut
+    })
+        .to(".boundinglem", {
+            y: '0',
 
-// Refresh ScrollTrigger and update Locomotive on window resize/update
-ScrollTrigger.addEventListener("refresh", () => scroll.update());
-ScrollTrigger.refresh();
+            duration: 2,
+            delay: -1,
+            ease: Expo.easeInOut,
+            stagger: 0.2
+
+        })
+        .from("#herofooter", {
+            y: '-10',
+            opacity: 0,
+            duration: 1.5,
+            delay: -1,
+            ease: Expo.easeInOut
+        })
+}
+
+function circleChapta() {
+    var xscale = 1;
+    var yscale = 1;
+    var xprev = 0;
+    var yprev = 0;
+
+    window.addEventListener("mousemove", function (dets) {
+        var xdiff = dets.clientX - xprev;
+        var ydiff = dets.clientY - yprev;
+        xscale = gsap.utils.clamp(0.8, 1.2, xdiff);
+        yscale = gsap.utils.clamp(0.8, 1.2, ydiff);
+
+        xprev = dets.clientX;
+        yprev = dets.clientY;
+
+        circleMouseFollower(xscale, yscale);
 
 
-// 2. HERO ANIMATIONS
-const tl = gsap.timeline();
 
-tl.from("#nav", {
-    y: '-10',
-    opacity: 0,
-    duration: 1.5,
-    ease: "expo.out"
-})
-.from("#heading h1, #secondh1", {
-    y: 100,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.2,
-    ease: "power3.out"
-}, "-=1")
-.from("#herofooter", {
-    y: -10,
-    opacity: 0,
-    duration: 1.5,
-    delay: -0.5,
-    ease: "expo.out"
-});
+    });
+}
 
+function circleMouseFollower(xscale, yscale) {
+    window.addEventListener("mousemove", function (dets) {
+        document.querySelector("#minicircle").style.transform = `translate(${dets.clientX}px, ${dets.clientY}px) scale(${xscale}, ${yscale})`;
 
-// 3. IMAGE HOVER FOLLOW EFFECT
+    })
+
+}
+
+circleMouseFollower();
+firstPageAnim();
+circleChapta();
+
 document.querySelectorAll(".elem").forEach(function (elem) {
-    let rotate = 0;
-    let diffrot = 0;
+    var rotate = 0;
+    var diffrot = 0;
 
-    elem.addEventListener("mousemove", function (details) {
-        // Calculate vertical position relative to the element
-        let diff = details.clientY - elem.getBoundingClientRect().top;
-        
-        // Calculate rotation based on mouse movement speed
-        diffrot = details.clientX - rotate;
-        rotate = details.clientX;
-
+    elem.addEventListener("mouseenter", function (dets) {
         gsap.to(elem.querySelector("img"), {
             opacity: 1,
-            ease: "power3.out",
-            top: diff,
-            left: details.clientX,
-            rotate: gsap.utils.clamp(-20, 20, diffrot * 0.5), // Limits rotation to 20 deg
-            duration: 0.5
+            ease: Power3,
         });
     });
 
-    elem.addEventListener("mouseleave", function () {
+    elem.addEventListener("mousemove", function (dets) {
+        var diff = dets.clientY - elem.getBoundingClientRect().top;
+        diffrot = dets.clientX - rotate;
+        rotate = dets.clientX;
+
+        gsap.to(elem.querySelector("img"), {
+            top: diff,
+            left: dets.clientX,
+            rotate: gsap.utils.clamp(-20, 20, diffrot * 0.5),
+            ease: Power3,
+        });
+    });
+
+    elem.addEventListener("mouseleave", function (dets) {
         gsap.to(elem.querySelector("img"), {
             opacity: 0,
+            ease: Power3,
             duration: 0.5,
-            ease: "power3.out"
         });
     });
-});
-
-
-// 4. SCROLL-TRIGGERED ANIMATIONS
-// Elements in the "Second" section
-gsap.from(".elem", {
-    opacity: 0,
-    y: 50,
-    stagger: 0.2,
-    scrollTrigger: {
-        trigger: "#second",
-        scroller: "#main",
-        start: "top 70%",
-    }
-});
-
-// About Section Content
-gsap.from("#about img, #textabout", {
-    opacity: 0,
-    y: 100,
-    duration: 1,
-    scrollTrigger: {
-        trigger: "#about",
-        scroller: "#main",
-        start: "top 80%"
-    }
 });
