@@ -1,5 +1,4 @@
-Cynthia Ugwu - Product Designer Portfolio
-Description
+## 🎨 Cynthia Ugwu - Product Designer Portfolio
 A modern, interactive single-page portfolio website showcasing the work and profile of Cynthia Ugwu, a product designer based in Toronto. The site features smooth scrolling, dynamic animations, and engaging hover effects to create an immersive user experience.
 
 Features
@@ -198,17 +197,24 @@ The custom cursor follows and reacts to movement
 
 
 
-Project Structure
-/project-folder-->
+## 📁 Project Structure--
+
 web-project/
-├── index.html          # Main HTML file
-├── style.css           # Stylesheet
-├── loco.css            # Locomotive Scroll styles
-├── script.js           # JavaScript for animations and interactions
-├── plug.png            # Project image
-├── ixperience.png      # Project image
-├── hudu.png            # Project image
-└── img1.png            # About section image
+├── index.html           # Main HTML file
+
+├── style.css            # Stylesheet
+
+├── loco.css             # Locomotive Scroll styles
+
+├── script.js            # JavaScript for animations and interactions
+
+├── plug.png             # Project image
+
+├── ixperience.png       # Project image
+
+├── hudu.png             # Project image
+
+└── img1.png             # About section image
 
 
 Browser Compatibility
